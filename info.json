@@ -1,0 +1,7 @@
+{
+    "Information":{
+        "Project name":"Virtue Doctor",
+        "Production_Server":"mysql://root:@localhost/virtue_doctor",
+        "Local_server":"mysql://root:@localhost/virtue_doctor"
+    }
+}
