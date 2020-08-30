@@ -51,4 +51,20 @@ def Home_back():
 
     return render_template('index.html')
 #-----------------------------------------------------------------
+@app.route('/Distress.html', methods=['GET','POST'])
+def registerDistress():
+    if(request.method == 'POST'):
+        first_name = request.form.get('Fname')
+        last_name = request.form.get('Lname')
+        phone_number = request.form.get('Phno')
+        city = request.form.get('City')
+        state = request.form.get('State')
+        pin_code = request.form.get('Zip')
+        msg = request.form.get('Messgae')
+        print(state)
+        # en = Subscribers(Email = email)
+        # db.session.add(en)
+        # db.session.commit()
+    return render_template('Distress.html')
+#-----------------------------------------------------------------
 app.run(debug = True)    
