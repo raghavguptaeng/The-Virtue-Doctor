@@ -26,21 +26,7 @@ def HomePage():
         db.session.add(en)
         db.session.commit()
     return render_template('index.html')
-#-----------------------------------------------------------------
-@app.route('/Contact.html' ,  methods=['GET','POST'])
-def Develouper_contact():
 
-    if(request.method == 'POST'):
-        """ Add entry to the database """
-        name = request.form.get('Name')
-        email = request.form.get('Email')
-        message = request.form.get('Message')    
-        entry = Feedback(Name = name , Email = email , Message = message)
-        db.session.add(entry)
-        db.session.commit()    
-        
-    return render_template('Contact.html')    
-#-----------------------------------------------------------------
 @app.route('/index.html', methods=['GET','POST'])
 def Home_back():
     if(request.method == 'POST'):
@@ -50,7 +36,7 @@ def Home_back():
         db.session.commit()
 
     return render_template('index.html')
-#-----------------------------------------------------------------
+#----------------------------------------------------------------
 @app.route('/Distress.html', methods=['GET','POST'])
 def registerDistress():
     if(request.method == 'POST'):
@@ -66,5 +52,5 @@ def registerDistress():
         # db.session.add(en)
         # db.session.commit()
     return render_template('Distress.html')
-#-----------------------------------------------------------------
+#-----------------------------------------------------------------    
 app.run(debug = True)    
