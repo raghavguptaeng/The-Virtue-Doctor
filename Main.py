@@ -39,6 +39,8 @@ def Home_back():
 #----------------------------------------------------------------
 @app.route('/Distress.html', methods=['GET','POST'])
 def registerDistress():
+    
+        
     if(request.method == 'POST'):
         first_name = request.form.get('Fname')
         last_name = request.form.get('Lname')
@@ -52,5 +54,21 @@ def registerDistress():
         # db.session.add(en)
         # db.session.commit()
     return render_template('Distress.html')
-#-----------------------------------------------------------------    
+#-----------------------------------------------------------------
+@app.route('/Contact.html' ,  methods=['GET','POST'])
+def Develouper_contact():
+    if(request.method == 'POST'):
+        """ Add entry to the database """
+        name = request.form.get('Name')
+        email = request.form.get('Email')
+        message = request.form.get('Message')    
+        entry = Feedback(Name = name , Email = email , Message = message)
+        db.session.add(entry)
+        db.session.commit()    
+        
+    return render_template('Contact.html')    
+#----------------------------------------------------------------- 
+@app.route('/selfAssess.html')
+def Assess():
+    return render_template('selfAssess.html')
 app.run(debug = True)    
