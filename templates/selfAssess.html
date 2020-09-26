@@ -558,6 +558,11 @@ body {
   margin: 40px auto;
   background-image: linear-gradient(to top, #cfcbcb 0%, #0fa122 100%);
 }
+.Raghav{
+  text-decoration: underline;
+  font-weight: bold;
+  margin-right: 113px;
+}
   </style>
 </head>
 <body>
@@ -584,140 +589,186 @@ body {
     </div>
   </section>
   <div class="selfAssess">
-    <form class="form-card">
+    <form class="form-card" action="selfAssess.html" method="POST">
       <fieldset class="form-fieldset">
           <legend class="form-legend">Take Free Test Now</legend>
           <div class="form-radio form-radio-inline">
-              <div class="form-radio-legend">Prefered Pronoun</div>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="He" />
-                  <i class="form-radio-button"></i>
-                  <span>He</span>
-              </label>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="She" />
-                  <i class="form-radio-button"></i>
-                  <span>She</span>
-              </label>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="They" />
-                  <i class="form-radio-button"></i>
-                  <span>They</span>
-              </label>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="Ze" />
-                  <i class="form-radio-button"></i>
-                  <span>Ze</span>
-              </label>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="A pronoun not listed" />
-                  <i class="form-radio-button"></i>
-                  <span>A pronoun not listed</span>
-              </label>
-              <label class="form-radio-label">
-                  <input name=pronoun class="form-radio-field" type="radio" required value="No pronoun preference" />
-                  <i class="form-radio-button"></i>
-                  <span>No pronoun preference</span>
-              </label>
+              <select name="Gender" id="Gen">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Other</option>
+              </select>
               <small class="form-element-hint">Feel free to choose</small>
           </div>
           <div class="form-element form-input">
-              <input id="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9" class="form-element-field" placeholder="Please fill in your full name" type="input" required/>
+              <input id="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9" class="form-element-field" name='pname' placeholder="Please fill in your full name" type="input" required/>
               <div class="form-element-bar"></div>
               <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Name</label>
           </div>
-          <div class="form-radio form-radio-block">
-            <div class="form-radio-legend">I am</div>
-            <br>
-            <label class="form-radio-label">
-                <input name=eat class="form-radio-field" type="radio" value="vagatarian food" />
-                <i class="form-radio-button"></i>
-                <span>Male</span>
-            </label>
-            <label class="form-radio-label">
-                <input name=eat class="form-radio-field" type="radio" value="vegan food" />
-                <i class="form-radio-button"></i>
-                <span>Female</span>
-            </label>
-            <label class="form-radio-label">
-                <input name=eat class="form-radio-field" type="radio" value="food with fish" />
-                <i class="form-radio-button"></i>
-                <span>Other</span>
-            </label>
-        </div>
           <div class="form-element form-input ">
-              <input id="field-x98ezh-s6s2g8-vfrkgb-ngrhef-atfkop" class="form-element-field -hasvalue" placeholder="Your Age" type="number" required  />
+              <input id="field-x98ezh-s6s2g8-vfrkgb-ngrhef-atfkop" class="form-element-field -hasvalue" name="age" placeholder="Your Age" type="number" required  />
               <div class="form-element-bar"></div>
           </div>
           <div class="form-element form-input">
-              <input id="field-uyzeji-352rnc-4rv3g1-bvlh88-9dewuz" class="form-element-field" placeholder=" " type="email" required/>
+              <input id="field-uyzeji-352rnc-4rv3g1-bvlh88-9dewuz" class="form-element-field" name="e" placeholder=" " type="email" required/>
               <div class="form-element-bar"></div>
               <label class="form-element-label" for="field-uyzeji-352rnc-4rv3g1-bvlh88-9dewuz">Email</label>
               <small class="form-element-hint">We will never spam you!</small>
           </div>
-          <div class="disease_selection">
-
-            <input type="checkbox" name="" id="Headace">
-            <label for="Headace">Headace</label>
+          <label for="headace"  class = "Raghav"> Headace </label>
+          <select name="headace" id="headace" >
+            <option value="0">none</option>
+            <option value="1">moderate</option>
+            <option value="2">severe</option>
+          </select>
+          <hr>
+          <br>
+          <label for="Fever" class = "Raghav">Fever</label>
+          <select name="Fever" id="Fever" >
+            <option value="0">none</option>
+            <option value="1">moderate</option>
+            <option value="2">severe</option>
+          </select>
+          <hr>
+          <br>
+            <label for="Cough" class = "Raghav">Cough</label>
+            <select name="Cough" id="Cough" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Fever">
-            <label for="Fever">Fever</label>
+            <label for="Diarrhea" class = "Raghav">Diarrhea</label>
+            <select name="Diarrhea" id="Diarrhea" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Cough">
-            <label for="Cough">Cough</label>
+            <label for="Breathing Difficulty" class = "Raghav">Breathing Difficulty</label>
+            <select name="Breathing Difficulty" id="Breathing Difficulty" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Diarrhea">
-            <label for="Diarrhea">Diarrhea</label>
+            <label for="Chest Pressure" class = "Raghav">Chest Pressure</label>
+            <select name="Chest Pressure" id="Chest Pressure" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Breathing Difficulty">
-            <label for="Breathing Difficulty">Breathing Difficulty</label>
+            <label for="Nasal Congestion" class = "Raghav">Nasal Congestion</label>
+            <select name="Nasal" id="Nasal Congestion" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Chest Pressure">
-            <label for="Chest Pressure">Chest Pressure</label>
+            <label for="Sweating" class = "Raghav">Sweating</label>
+            <select name="Sweating" id="Sweating" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Nasal Congestion">
-            <label for="Nasal Congestion">Nasal Congestion</label>
+            <label for="Skin Irritation" class = "Raghav">Skin Irritation</label>
+            <select name="Skin" id="Skin Irritation" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Sweating">
-            <label for="Sweating">Sweating</label>
+            <label for="Muscle Ace" class = "Raghav">Muscle Ace</label>
+            <select name="Muscle" id="Muscle Ace" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Skin Irritation">
-            <label for="Skin Irritation">Skin Irritation</label>
+            <label for="Nausea" class = "Raghav">Nausea</label>
+            <select name="Nausea" id="Nausea" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Muscle Ace">
-            <label for="Muscle Ace">Muscle Ace</label>
+            <label for="Abdominal Pain" class = "Raghav">Abdominal Pain</label>
+            <select name="Abdominal" id="Abdominal Pain" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Nausea">
-            <label for="Nausea">Nausea</label>
+            <label for="Ithy Eyes" class = "Raghav">Ithy Eyes</label>
+            <select name="Itchy Eyes" id="Itchy Eyes" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Abdominal Pain">
-            <label for="Abdominal Pain">Abdominal Pain</label>
+            <label for="Vomiting" class = "Raghav">Vomiting</label>
+            <select name="Vomiting" id="Vomitting" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Ithy Eyes">
-            <label for="Ithy Eyes">Ithy Eyes</label>
+            <label for="Heartburn" class = "Raghav">Heartburn</label>
+            <select name="Heartburn" id="Heartburn" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Vomiting">
-            <label for="Vomiting">Vomiting</label>
+            <label for="Wheezing" class = "Raghav">Wheezing</label>
+            <select name="Wheezing" id="Wheezing" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Heartburn">
-            <label for="Heartburn">Heartburn</label>
+            <label for="Throat Irritation" class = "Raghav">Throat Irritation</label>
+            <select name="Throat" id="Throat Irritation" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Wheezing">
-            <label for="Wheezing">Wheezing</label>
+            <label for="Sleeping Difficulty" class = "Raghav">Sleeping Difficulty</label>
+            <select name="Sleeping" id="Sleeping Difficulty" >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
+            <hr>
             <br>
-            <input type="checkbox" name="" id="Throat Irritation">
-            <label for="Throat Irritation">Throat Irritation</label>
-            <br>
-            <input type="checkbox" name="" id="Sleeping Difficulty">
-            <label for="Sleeping Difficulty">Sleeping Difficulty</label>
-            <br>
-            <input type="checkbox" name="" id="Tiredness">
-            <label for="Tiredness">Tiredness</label>
+            <label for="Tiredness" class = "Raghav">Tiredness</label>
+            <select name="Tiredness" id="Tiredness"  >
+              <option value="0">none</option>
+              <option value="1">moderate</option>
+              <option value="2">severe</option>
+            </select>
           </div>
-      </fieldset>
       <div class="form-actions">
           <button class="form-btn" type="submit">Get Result</button>
-          <button class="form-btn-cancel -nooutline" type="reset">Cancel</button>
+          <button class="form-btn-cancel -nooutline" type="reset" style="background-color: red; color: white;">Cancel</button>
       </div>
   </form>
   </div>
@@ -748,15 +799,6 @@ body {
                 </div>
     
               </div>
-    
-              <div class="col-lg-3 col-md-6 footer-newsletter">
-                <h4>Our Newsletter</h4>
-                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-                <form action="" method="post">
-                  <input type="email" name="email"  style="color:black;"><input type="submit" value="Subscribe">
-                </form>
-              </div>
-    
             </div>
           </div>
         </div>
