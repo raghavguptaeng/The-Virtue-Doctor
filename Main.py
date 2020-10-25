@@ -1,7 +1,10 @@
 from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy
-import pandas as pd
 import json
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import preprocessing
 #-----------------------------------------------------------------
 app = Flask(__name__)
 with open('info.json','r') as c:
@@ -77,15 +80,15 @@ def Assess():
         name = request.form.get('pname')
         age = request.form.get('age')
         email = request.form.get('e')
-        problems.append(request.form.get('headace'))
         problems.append(request.form.get('Fever'))
         problems.append(request.form.get('Cough'))
         problems.append(request.form.get('Diarrhea'))
-        problems.append(request.form.get('Breathing Difficulty'))
+        problems.append(request.form.get('headace'))
+        #--- removed Breathing problem
         problems.append(request.form.get('Chest Pressure'))
         problems.append(request.form.get('Nasal'))
         problems.append(request.form.get('Sweating'))
-        problems.append(request.form.get('Skin'))
+        #problems.append(request.form.get('Skin'))
         problems.append(request.form.get('Muscle'))
         problems.append(request.form.get('Nausea'))
         problems.append(request.form.get('Abdominal'))
@@ -94,12 +97,26 @@ def Assess():
         problems.append(request.form.get('Heartburn'))
         problems.append(request.form.get('Wheezing'))
         problems.append(request.form.get('Throat'))
-        problems.append(request.form.get('Sleeping'))
+        #---- removed Sleeping
         problems.append(request.form.get('Tiredness'))
         check_for_disease(name,email,problems)
 
     return render_template('selfAssess.html')
 def check_for_disease(name,email,dis):
-    pd.read_csv("/static/Dataset/Dataset.csv")
-    pd.head()
+    disease = []
+    disease.append(dis)
+    data = pd.read_csv(r'D:\Projets\websites\virtue_Docrtor_Final\static\Dataset.csv')
+    x = data[['FEVER', 'COUGH', 'DIARRHEA',
+              'HEADACHE', 'CHEST PRESSURE',
+              'NASAL CONGESTION', 'SWEATING',
+              'MUSCLE ACHE', 'NAUSEA', 'ABDOMINAL PAIN',
+              'ITCHY EYES/BLURRED VISION','VOMITING','HEARTBURN','WHEEZING','THROAT IRRITATION'
+              ,'TIREDNESS']].values
+    y = data[['NAME']]
+    X = preprocessing.StandardScaler().fit(x).transform(x.astype(float))
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
+    k = 1
+    neigh = KNeighborsClassifier(n_neighbors=k).fit(X_train, y_train.values.ravel())
+    ans = neigh.predict(disease)
+    print(ans[0])
 app.run(debug = True)    
