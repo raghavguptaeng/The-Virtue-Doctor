@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
 import json
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -11,24 +12,26 @@ with open('info.json','r') as c:
     info = json.load(c)["Information"]
 
 app.config['SQLALCHEMY_DATABASE_URI'] = info["Production_Server"] 
-db = SQLAlchemy(app)   
+db = SQLAlchemy(app)
 #-----------------------------------------------------------------
 class Feedback(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(100),  nullable=False )
     Email = db.Column(db.String(100),  nullable=False)
     Message = db.Column(db.String(1000),  nullable=False)
+
 #-----------------------------------------------------------------  
 class Subscribers(db.Model):
     Email = db.Column(db.String(100),  primary_key=True)
 #-----------------------------------------------------------------   
+
 @app.route('/', methods=['GET','POST'])
 def HomePage():
     if(request.method == 'POST'):
         email = request.form.get('email')
-        en = Subscribers(Email = email)
-        db.session.add(en)
-        db.session.commit()
+        #en = Subscribers(Email = email)
+        #db.session.add(en)
+        #db.session.commit()
     return render_template('index.html')
 
 @app.route('/index.html', methods=['GET','POST'])
@@ -54,9 +57,9 @@ def registerDistress():
         pin_code = request.form.get('Zip')
         msg = request.form.get('Messgae')
         print(state)
-        # en = Subscribers(Email = email)
-        # db.session.add(en)
-        # db.session.commit()
+
+         #db.session.add(en)
+         #db.session.commit()
     return render_template('Distress.html')
 #-----------------------------------------------------------------
 @app.route('/Contact.html' ,  methods=['GET','POST'])
@@ -68,7 +71,7 @@ def Develouper_contact():
         message = request.form.get('Message')    
         entry = Feedback(Name = name , Email = email , Message = message)
         db.session.add(entry)
-        db.session.commit()    
+        db.session.commit()
         
     return render_template('Contact.html')    
 #----------------------------------------------------------------- 
@@ -102,6 +105,8 @@ def Assess():
         check_for_disease(name,email,problems)
 
     return render_template('selfAssess.html')
+def send_main(disease):
+    print('ok')
 def check_for_disease(name,email,dis):
     disease = []
     disease.append(dis)
@@ -119,4 +124,5 @@ def check_for_disease(name,email,dis):
     neigh = KNeighborsClassifier(n_neighbors=k).fit(X_train, y_train.values.ravel())
     ans = neigh.predict(disease)
     print(ans[0])
+    send_main(ans[0])
 app.run(debug = True)    
